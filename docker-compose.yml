@@ -22,7 +22,7 @@ services:
     networks:
       - portfolio-api-network
     ports:
-      - "${DATABASE_PORT}:${DATABASE_PORT}"
+      - ":${DATABASE_PORT}"
     volumes:
       - db-data:/var/lib/postgresql/data
 networks:
