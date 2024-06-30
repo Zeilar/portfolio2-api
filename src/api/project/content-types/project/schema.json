@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20,
+      "unique": true
+    },
+    "Slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 20
+    },
+    "Description": {
+      "type": "blocks",
+      "required": true
+    },
+    "URL": {
+      "type": "string",
+      "required": true,
+      "regex": "(https:\\/\\/www\\.|http:\\/\\/www\\.|https:\\/\\/|http:\\/\\/)?[a-zA-Z0-9]{2,}(\\.[a-zA-Z0-9]{2,})(\\.[a-zA-Z0-9]{2,})?"
+    },
+    "PreviewImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "Featured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Technologies": {
+      "type": "string",
+      "required": true,
+      "regex": "\\s*([^,]+)\\s*(?:,\\s*([^,]+)\\s*)*"
+    }
+  }
+}
