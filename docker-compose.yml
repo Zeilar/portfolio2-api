@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-api
+    networks:
+      - portfolio-api-network
+    ports:
+      - "1337:1337"
+    depends_on:
+      - db
+  db:
+    image: postgres:latest
+    container_name: portfolio-api-db
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    networks:
+      - portfolio-api-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+networks:
+  portfolio-api-network:
+volumes:
+  db-data:

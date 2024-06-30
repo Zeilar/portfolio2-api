@@ -1,0 +1,7 @@
+node_modules
+build
+.tmp
+.strapi
+.strapi-cloud.json
+.strapi-updater.json
+package-lock.json
