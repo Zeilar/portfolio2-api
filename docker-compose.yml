@@ -9,7 +9,7 @@ services:
     networks:
       - portfolio-api-network
     ports:
-      - "1337:1337"
+      - "${PORT}:${PORT}"
     depends_on:
       - db
   db:
@@ -22,7 +22,7 @@ services:
     networks:
       - portfolio-api-network
     ports:
-      - "5432:5432"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     volumes:
       - db-data:/var/lib/postgresql/data
 networks:
